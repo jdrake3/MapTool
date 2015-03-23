@@ -1,0 +1,19 @@
+<!-- Variables -->
+[h:d20Roll=d20]
+[h:AttackRoll=d20Roll+5]
+[h:DamageRoll=1d8]
+[h:CritDamage=DamageRoll+DamageRoll]
+
+<!-- Description -->
+<B style='color:TO_MATCH_THE_FEEL'>SPELL_NAME</B><br>
+<i>SCHOOL_OF_MAGIC Cantrip</i><br><br>
+<B>Casting Time:</B> X action<br>
+<B>Range:</B> XX feet<br>
+<B>Components:</B> V, S, M<br>
+<B>Duration:</B> Instantaneous/Concentation up to X rnd/end of turn/minutes/hours
+<br>
+DESCRIPTION
+[r, switch(d20Roll):
+case 20: "Ranged spell attack: CRITICAL HIT! "+CritDamage+" damage.";
+case 1: "CRITICAL FUMBLE!";
+default: AttackRoll+" vs AC. "+DamageRoll+" damage."]
