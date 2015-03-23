@@ -1,0 +1,7 @@
+[h:d10Roll=d10]
+[h:hpChange=(d10Roll)]
+Second Wind:
+[h:diff = MaxHP - HP]
+[h:HP = min(HP+hpChange, MaxHP)]
+[h:bar.Health = HP / MaxHP]
+[r:token.name] is healed and gains [r:min(diff,hpChange)] hit points.
