@@ -1,0 +1,17 @@
+[h:d20Roll=d20]
+[h:AttackRoll=d20Roll+5]
+[h:DamageRoll=1d8]
+[h:CritDamage=DamageRoll+DamageRoll]
+
+<B style='color:blue'>Ray of Frost </B><br>
+<i>Evocation Cantrip</i><br><br>
+<B>Casting Time:</B> 1 action<br>
+<B>Range:</B> 60 feet<br>
+<B>Components:</B> V, S<br>
+<B>Duration:</B> Instantaneous<br><br>
+A frigid beam of blue-white light streaks toward the creature. On a hit they take 1d8 and are slowed by <b>10</b> feet untill the start of my next turn.
+<br><br>
+[r, switch(d20Roll):
+case 20: "<b>Ranged spell attack:</b> <b style='color:blue'>CRITICAL HIT!</b><br><b>Damage:</b> <b style='color:blue'>"+CritDamage+"</b>";
+case 1: "<b>Ranged spell attack:</b> CRITICAL <b style='color:red'>FUMBLE!</b>";
+default: "<b>Ranged spell attack:</b> "+AttackRoll+" vs AC<br><b>Damage:</b> "+DamageRoll]
