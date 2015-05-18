@@ -1,0 +1,5 @@
+<B>Dagger Attack</B>: [t(roll.result): 1d20]
+[r:if(((roll.result == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>"," + 2 Dex + 2 Prof = <span style='color:blue;font-weight:bold'>" + (roll.result+2+2) + "</span> vs AC")] 
+<br>
+<B>(Dis)Advantage</B>: [t(roll.result): 1d20]
+[r:if(((roll.result == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>"," + 2 Dex + 2 Prof = <span style='font-weight:bold'>" + (roll.result+2+2) + "</span> vs AC")] 
