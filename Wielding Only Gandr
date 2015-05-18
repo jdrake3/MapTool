@@ -1,6 +1,6 @@
 [h:d20Roll=d20]
 [h:AttackRoll=d20Roll+4]
-[h:DamageRoll=1d8+4]
+[h:DamageRoll=1d8+4+2]
 [h:CritDamage=DamageRoll+DamageRoll]
 Gandr (Silvered Rapier) Dueling:
 [r, switch(d20Roll):
