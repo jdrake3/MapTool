@@ -1,4 +1,5 @@
 <!-- Dueling Brockdor -->
+[h:Name="Brockdor"]
 [h:Bonus=2]
 
 [h:macro_arguments=0]
@@ -9,7 +10,7 @@
 [h,macro("Prof@this"): macro_arguments]
 [h:Prof=macro.return]
 
-<B>Brockdor</B> (+2 Rapier)<br>
+[r:"<B>" + (Name) + "</B> (+ " + (Bonus) + "  Rapier)<br>"]
 Dueling:<br> [t:d20Roll=d20]
 [r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>"," + "
           + (Dex) + " Dex + " + (Prof) +
@@ -26,7 +27,7 @@ For <B>[t(roll.result): 1d8+Bonus+Dex+2]</B>
 [r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>"," + "
          + (Dex) + " Dex + " + (Prof) +
 " Prof = <span style='color:blue;font-weight:bold'>"
-         + (d20Roll+Bonus+Dex+Prof) +
+         + (d20Roll+Bonus +Dex+Prof) +
 "</span> vs AC"))]
 [h:crit=if(d20Roll == 20,1,0)]
 [h:fail=if(d20Roll == 1,1,0)]
