@@ -1,0 +1,10 @@
+<B>Untrained</B> Musket<br>
+Attack: [t(roll.result): 1d20]
+[r:if(((roll.result == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>"," + 2 Dex = <span style='color:blue;font-weight:bold'>" + (roll.result+2) + "</span> vs AC")] 
+[h:crit=if(roll.result == 20,1,0)]
+<br>
+(Dis)<B>Advantage</B>: [t(roll.result): 1d20]
+[r:if(((roll.result == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>"," + 2 Dex = <span style='font-weight:bold'>" + (roll.result+2) + "</span> vs AC")]
+<br>
+For <B>[t(roll.result): 1d12+2]</B>
+[t:if(crit," +"+roll.result+"="+(roll.result*2),"")] Piercing Damage
