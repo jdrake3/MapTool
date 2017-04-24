@@ -1,0 +1,15 @@
+<B>Brockdor</B> (+2 Rapier):<br> [t:d20Roll=d20]
+[r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>"," + 2 Dex + 3 Prof = <span style='color:blue;font-weight:bold'>" + (d20Roll+2+3+2) + "</span> vs AC"))]
+[h:crit=if(d20Roll == 20,1,0)]
+[h:fail=if(d20Roll == 1,1,0)]
+<br>
+For <B>[t(roll.result): 1d8+2+2]</B>
+[t:if(fail,0,if(crit," +"+roll.result+"="+(roll.result*2),""))] Piercing Damage
+<br><br>
+(Dis)<B>Advantage:</B><br> [t:d20Roll=d20]
+[r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>"," + 2 Dex + 3 Prof = <span style='color:blue;font-weight:bold'>" + (d20Roll+2+3+2) + "</span> vs AC"))]
+[h:crit=if(d20Roll == 20,1,0)]
+[h:fail=if(d20Roll == 1,1,0)]
+<br>
+For <B>[t(roll.result): 1d8+2+2]</B>
+[t:if(fail,0,if(crit," +"+roll.result+"="+(roll.result*2),""))] Piercing Damage
