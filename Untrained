@@ -12,8 +12,15 @@
 
 [h:dmgDie="1d"+DamageDie]
 
-[r:"<B>" + (Name) + "</B> (" +  if( (Bonus)!=0, "+" + (Bonus) + " ", "") + (Property) + "  Rapier)<br>"]
-Dueling:<br> [t:d20Roll=d20]
+[r:"<B>" + (Name) + "</B>" + " " +
+	if( (Bonus)!=0 || (Property)!='',   "(" +  
+		if( (Bonus)!=0, "+" + (Bonus), "") + 
+		if( (Bonus)!=0 && (Property)!="", " ", "" )+
+		if ( (Property)!='', "" + (Property), "") + ")", 
+	"") +
+"<br>"]
+
+[t:d20Roll=d20]
 [r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>"," + "
           + (Dex) + " Dex = <span style='color:blue;font-weight:bold'>"
           + (d20Roll+Bonus+Dex) +
