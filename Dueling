@@ -1,8 +1,8 @@
-<!-- Dueling -->
-[h: assert(argCount()>1, "Dueling expects three arguments.")]
+[h: assert(argCount()>1, "Dueling expects four arguments.")]
 [h:Name=arg(0)]
 [h:Property=arg(1)]
 [h:Bonus=arg(2)]
+[h:DamageDie=arg(3)]
 
 [h:macro_arguments=0]
 
@@ -12,8 +12,16 @@
 [h,macro("Prof@this"): macro_arguments]
 [h:Prof=macro.return]
 
-[r:"<B>" + (Name) + "</B> (" +  if( (Bonus)!=0, "+" + (Bonus) + " ", "") + (Property) + "  Rapier)<br>"]
-Dueling:<br> [t:d20Roll=d20]
+[h:dmgDie="1d"+DamageDie]
+
+[r:"<B>" + (Name) + "</B>" + " " +
+	if( (Bonus)!=0 || (Property)!='',   "(" +  
+		if( (Bonus)!=0, "+" + (Bonus), "") + 
+		if( (Bonus)!=0 && (Property)!="", " ", "" )+
+		if ( (Property)!='', "" + (Property), "") + ")", 
+	"") +
+"<br>"]
+[t:d20Roll=d20]
 [r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>"," + "
           + (Dex) + " Dex + " + (Prof) +
 " Prof = <span style='color:blue;font-weight:bold'>"
@@ -22,7 +30,7 @@ Dueling:<br> [t:d20Roll=d20]
 [h:crit=if(d20Roll == 20,1,0)]
 [h:fail=if(d20Roll == 1,1,0)]
 <br>
-For <B>[t(roll.result): 1d8+Bonus+Dex+2]</B>
+For <B>[t(roll.result): eval(dmgDie)+Bonus+Dex+2]</B>
 [t:if(fail,0,if(crit," +"+roll.result+"="+(roll.result*2),""))] Piercing Damage
 <br><br>
 (Dis)<B>Advantage:</B><br> [t:d20Roll=d20]
@@ -34,5 +42,5 @@ For <B>[t(roll.result): 1d8+Bonus+Dex+2]</B>
 [h:crit=if(d20Roll == 20,1,0)]
 [h:fail=if(d20Roll == 1,1,0)]
 <br>
-For <B>[t(roll.result): 1d8+Bonus+Dex+2]</B>
+For <B>[t(roll.result): eval(dmgDie)+Bonus+Dex+2]</B>
 [t:if(fail,0,if(crit," +"+roll.result+"="+(roll.result*2),""))] Piercing Damage
