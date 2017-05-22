@@ -1,8 +1,9 @@
 <!-- Dueling Treachery's End -->
-
 [h:Name="Treachery's End"]
 [h:Property=""]
 [h:Bonus=1]
+[h:DamageDie=8]
 
-[h:defineFunction("Dueling", "Dueling@this")]
-[r:Dueling(Name, Property, Bonus)]
+[h:passedVars = json.append("", Name, Property, Bonus, DamageDie)]
+
+[macro("Dueling@this"):passedVars]
