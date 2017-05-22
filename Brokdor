@@ -3,6 +3,8 @@
 [h:Name="Brockdor"]
 [h:Property=""]
 [h:Bonus=2]
+[h:DamageDie=8]
 
-[h:defineFunction("Regular", "Regular@this")]
-[r:Regular(Name, Property, Bonus)]
+[h:passedVars = json.append("", Name, Property, Bonus, DamageDie)]
+
+[macro("Regular@this"):passedVars]
