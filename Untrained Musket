@@ -3,6 +3,6 @@
 [h:Property="Untrained"]
 [h:Bonus=0]
 [h:DamageDie=12]
+[h:passedVars = json.append("", Name, Property, Bonus, DamageDie)]
 
-[h:defineFunction("Untrained", "Untrained@this")]
-[r:Untrained(Name, Property, Bonus, DamageDie)]
+[macro("Untrained@this"):passedVars]
