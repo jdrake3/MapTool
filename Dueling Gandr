@@ -2,6 +2,8 @@
 [h:Name="Gandr"]
 [h:Property="Silvered"]
 [h:Bonus=0]
+[h:DamageDie=8]
 
-[h:defineFunction("Dueling", "Dueling@this")]
-[r:Dueling(Name, Property, Bonus)]
+[h:passedVars = json.append("", Name, Property, Bonus, DamageDie)]
+
+[macro("Dueling@this"):passedVars]
