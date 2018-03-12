@@ -1,0 +1,37 @@
+[h:macro_arguments=0]
+
+[h,macro("Prof@this"): macro_arguments]
+[h:Prof=macro.return]
+
+[h:dmgDie="2d10"]
+[h:type="Fire"]
+
+<B style='color:red'>Fire Bolt</B><br>
+<i>Evocation Cantrip</i><br><br>
+<B>Casting Time:</B> 1 action<br>
+<B>Range:</B> 120 feet)<br>
+<B>Components:</B> V, S<br>
+<B>Duration:</B> Instantaneous<br><br>
+[r:"You hurl a mote of fire at a creature or object within range. Ignites flamable objects that are not being worn or carried."]<br>
+<br>
+[t:d20Roll=d20]
+[r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>"," + "
+          + (Prof) + " Prof = <span style='color:blue;font-weight:bold'>"
+          + (d20Roll+Prof) +
+"</span> vs AC"))]
+[h:crit=if(d20Roll == 20,1,0)]
+[h:fail=if(d20Roll == 1,1,0)]
+<br>
+For <B>[t(roll.result):if(fail,0,eval(dmgDie))]
+[t:if(crit," + "+roll.result+" = "+(roll.result*2),"")] </B>[t:type] Damage
+<br><br>
+(Dis)<B>Advantage:</B><br> [t:d20Roll=d20]
+[r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>"," + "
+         + (Prof) + " Prof  = <span style='color:blue;font-weight:bold'>"
+         + (d20Roll+ Prof) +
+"</span> vs AC"))]
+[h:crit=if(d20Roll == 20,1,0)]
+[h:fail=if(d20Roll == 1,1,0)]
+<br>
+For <B>[t(roll.result):if(fail,0,eval(dmgDie))]
+[t:if(crit," + "+roll.result+" = "+(roll.result*2),"")] </B>[t:type] Damage
