@@ -1,0 +1,28 @@
+[h:assert(argCount()>2, "hitDisplay expects two arguments.")]
+[h:D20Roll=arg(0)]
+[h:Bonus=arg(1)]
+[h:Finess=arg(2)]
+
+[h:macro_arguments=0]
+
+[h,macro("Dex@this"): macro_arguments]
+[h:Dex=macro.return]
+
+[h,macro("Prof@this"): macro_arguments]
+[h:Prof=macro.return]
+
+[h,macro("Penalty@this"): macro_arguments]
+[h:Penalty=macro.return]
+
+[r:
+if( (D20Roll == 20), "<span style='color:red;font-weight:bold'>Critical!</span>", "")
++ if( (D20Roll == 1), "<span style='color:red;font-weight:bold'>Critical Failure!</span>", "")
++ if( (D20Roll != 20 && d20Roll != 1), " + "
+     + (Dex) + " Dex + "
+     + (Prof) + " Prof "
+     + if( (Penalty)!=0, "- " + (Penalty)  + " Penalty", "")
+     + " = <span style='color:blue;font-weight:bold'>"
+     + ((D20Roll+Bonus+Dex+Prof)-(Penalty+2))
+     + "</span> vs AC", ""
+   )
+]
