@@ -25,17 +25,9 @@
 	"") +
 "<br>"]
 [t:d20Roll=d20]
-[r:
-           if( (d20Roll == 20), "<span style='color:red;font-weight:bold'>Critical!</span>", "") +
-           if( (d20Roll == 1), "<span style='color:red;font-weight:bold'>Critical Failure!</span>", "") +
-           if( (d20Roll != 20 && d20Roll != 1), " + "
-                    + (Dex) + " Dex + "
-                    + (Prof) + " Prof "
-                    + if( (Penalty)!=0, "- " + (Penalty)  + " Penalty", "")
-                    + " = <span style='color:blue;font-weight:bold'>"
-                    + ((d20Roll+Bonus+Dex+Prof)-(Penalty+2)) +
-                    "</span> vs AC", "")
-]
+[h:passedVars = json.append(d20Roll, Bonus, 1)]
+[macro("hitDisplay@this"):json.append(d20Roll, Bonus, 1)]
+
 [h:crit=if(d20Roll == 20,1,0)]
 [h:fail=if(d20Roll == 1,1,0)]
 <br>
@@ -43,17 +35,8 @@ For <B>[t(roll.result): eval(dmgDie)+Bonus+Dex+2]</B>
 [t:if(fail,0,if(crit," +"+roll.result+"="+(roll.result*2),""))] Piercing Damage
 <br><br>
 (Dis)<B>Advantage:</B><br> [t:d20Roll=d20]
-[r:
-           if( (d20Roll == 20), "<span style='color:red;font-weight:bold'>Critical!</span>", "") +
-           if( (d20Roll == 1), "<span style='color:red;font-weight:bold'>Critical Failure!</span>", "") +
-           if( (d20Roll != 20 && d20Roll != 1), " + "
-                    + (Dex) + " Dex + "
-                    + (Prof) + " Prof "
-                    + if( (Penalty)!=0, "- " + (Penalty)  + " Penalty", "")
-                    + " = <span style='color:blue;font-weight:bold'>"
-                    + ((d20Roll+Bonus+Dex+Prof)-(Penalty+2)) +
-                    "</span> vs AC", "")
-]
+[macro("hitDisplay@this"): json.append(d20Roll, Bonus, 1)]
+
 [h:crit=if(d20Roll == 20,1,0)]
 [h:fail=if(d20Roll == 1,1,0)]
 <br>
