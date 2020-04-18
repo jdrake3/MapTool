@@ -1,0 +1,9 @@
+<!-- Silvered Dagger -->
+[h:Name="Dagger"]
+[h:Property="Silvered"]
+[h:Bonus=0]
+[h:DamageDie=4]
+
+[h:passedVars = json.append("", Name, Property, Bonus, DamageDie)]
+
+[macro("Finesse@this"):passedVars]
