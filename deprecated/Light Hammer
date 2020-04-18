@@ -1,0 +1,9 @@
+[hd20Roll=d20]
+[hAttackRoll=d20Roll+3]
+[hDamageRoll=1d4]
+[hCritDamage=DamageRoll+DamageRoll]
+Light Hammer
+[r, switch(d20Roll)
+case 20 CRITICAL HIT! +CritDamage+ damage.;
+case 1 CRITICAL FUMBLE!;
+default AttackRoll+ vs AC. +DamageRoll+ damage.]

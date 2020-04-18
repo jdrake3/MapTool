@@ -1,0 +1,9 @@
+<!-- Dagger Gandr -->
+[h:Name="Dagger"]
+[h:Property=""]
+[h:Bonus=0]
+[h:DamageDie=4]
+
+[h:passedVars = json.append("", Name, Property, Bonus, DamageDie)]
+
+[macro("Dueling@this"):passedVars]
