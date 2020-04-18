@@ -1,0 +1,9 @@
+<!-- Treachery's End -->
+[h:Name="Treachery's End"]
+[h:Property=""]
+[h:Bonus=1]
+[h:DamageDie=8]
+
+[h:passedVars = json.append("", Name, Property, Bonus, DamageDie)]
+
+[macro("Finesse@this"):passedVars]
