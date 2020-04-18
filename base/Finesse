@@ -1,0 +1,49 @@
+[h: assert(argCount()>1, "Finesse expects four arguments.")]
+[h:Name=arg(0)]
+[h:Property=arg(1)]
+[h:Bonus=arg(2)]
+[h:DamageDie=arg(3)]
+
+[h:macro_arguments=0]
+
+[h,macro("Dex@this"): macro_arguments]
+[h:Dex=macro.return]
+
+[h,macro("Prof@this"): macro_arguments]
+[h:Prof=macro.return]
+
+[h:dmgDie="1d"+DamageDie]
+
+[r:"<B>" + (Name) + "</B>" + " " +
+	if( (Bonus)!=0 || (Property)!='',   "(" +  
+		if( (Bonus)!=0, "+" + (Bonus), "") + 
+		if( (Bonus)!=0 && (Property)!="", " ", "" )+
+		if ( (Property)!='', "" + (Property), "") + ")", 
+	"") +
+"<br>"]
+
+[t:d20Roll=d20]
+[r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>","+ "
+         + if( (Bonus)!=0, (Bonus) + " Bonus + ", "")
+         + (Dex) + " Dex + "
+         + (Prof) + " Prof = <span style='color:blue;font-weight:bold'>"
+          + (d20Roll+Bonus+Dex+Prof) +
+"</span> vs AC"))]
+[h:crit=if(d20Roll == 20,1,0)]
+[h:fail=if(d20Roll == 1,1,0)]
+<br>
+[h:roll.result=eval(dmgDie)+Bonus+Dex]
+[t:if(fail,"",+ "For <B>" + if(crit,(roll.result) + " * 2 = "+(roll.result*2), (roll.result)) + "</B> Piercing Damage")] 
+<br><br>
+(Dis)<B>Advantage:</B><br> [t:d20Roll=d20]
+[r:if(((d20Roll == 20)),"<span style='color:red;font-weight:bold'>Critical!</span>",if((d20Roll == 1),"<span style='color:red;font-weight:bold'>Critical Failure!</span>"," + "
+         + if( (Bonus)!=0, (Bonus) + " Bonus + ", "")
+         + (Dex) + " Dex + "
+         + (Prof) + " Prof = <span style='color:blue;font-weight:bold'>"
+         + (d20Roll+Bonus +Dex+Prof) +
+"</span> vs AC"))]
+[h:crit=if(d20Roll == 20,1,0)]
+[h:fail=if(d20Roll == 1,1,0)]
+<br>
+[h:roll.result=eval(dmgDie)+Bonus+Dex]
+[t:if(fail,"",+ "For <B>" + if(crit,(roll.result) + " * 2 = "+(roll.result*2), (roll.result)) + "</B> Piercing Damage")] 
